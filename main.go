@@ -1,12 +1,14 @@
 package main
 
 import (
+	"go_http/cronConfig"
 	"go_http/router"
-	"go_http/utils"
 )
 
 func main() {
-	utils.StartSend()
+	// 初始化定时任务
+	c := cronConfig.CronInit()
+	defer c.Stop()
 	r := router.RegRouter()
-	r.Run(":80")
+	r.Run(":8066")
 }

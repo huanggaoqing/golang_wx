@@ -20,10 +20,10 @@ func StartSend() {
 	}
 	users, err := GetUserList(token.AccessToken)
 	for _, openId := range users {
-		if openId == "ooQma5o6FAu7KRvqnSyw_bABMUtw" {
-			go SendMessage(openId, evendaysen, token.AccessToken, "北京")
-		} else {
+		if openId == "ooQma5qKDtUMnhnz4RiesakAzGdk" {
 			go SendMessage(openId, evendaysen, token.AccessToken, "上海")
+		} else {
+			go SendMessage(openId, evendaysen, token.AccessToken, "北京")
 		}
 	}
 	if err != nil {
