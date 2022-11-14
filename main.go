@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	utils.GetEvendaysen()
+	utils.StartSend()
 	r := router.RegRouter()
 	r.Run(":80")
 }

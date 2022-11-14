@@ -28,7 +28,7 @@ type wxCheckoutParams struct {
 func checkout(ctx *gin.Context) {
 	wxParams := &wxCheckoutParams{}
 	if err := ctx.BindQuery(wxParams); err != nil {
-		log.Panicln("绑定失败")
+		log.Println("绑定失败", err.Error())
 	}
 	// 将 echostr， timestamp，nonce进行排序
 	tempArray := []string{token, wxParams.Nonce, wxParams.Timestamp}
@@ -45,5 +45,5 @@ func checkout(ctx *gin.Context) {
 		ctx.String(http.StatusOK, wxParams.Echostr)
 		return
 	}
-	log.Panicln("验证失败")
+	log.Println("验证失败")
 }
